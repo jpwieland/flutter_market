@@ -38,14 +38,19 @@ dependencies:
   pdf:
   path_provider:
   flutter_full_pdf_viewer_null_safe:
-  flutter_bloc:
   equatable:
-  cupertino_icons: ^1.0.2
+  flutter_localization:
+  cupertino_icons:
+  mobx:
+  flutter_mobx:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito:
+  build_runner:
+  mobx_codegen:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -66,8 +71,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - lib/view/assets/logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
