@@ -49,6 +49,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito:
+  mocktail:
   build_runner:
   mobx_codegen:
 
