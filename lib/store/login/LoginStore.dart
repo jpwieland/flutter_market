@@ -6,6 +6,11 @@ part 'LoginStore.g.dart'; // Arquivo gerado pelo MobX
 class LoginStore = _LoginStore with _$LoginStore;
 
 abstract class _LoginStore with Store {
+  final FirebaseAuth firebaseAuth;
+
+  _LoginStore({FirebaseAuth? firebaseAuth})
+      : this.firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+
   @observable
   String email = '';
 
