@@ -16,46 +16,61 @@ class LoginPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Image.asset('lib/view/assets/logo.png'),
-              Container(
-                padding: EdgeInsets.all(20.0),
-                color: Colors.white, // White
-                child: Column(
-                  children: <Widget>[
-                    TextField(
-                      onChanged: (value) => store.email = value,
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
-                      ),
-                      style: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
-                    ),
-                    SizedBox(height: 10),
-                    TextField(
-                      onChanged: (value) => store.password = value,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
-                      ),
-                      style: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
-                      obscureText: true,
-                    ),
-                    SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: store.isFormValid ? store.signInWithEmailAndPassword : null,
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Color(0xFF78ed1a)), // Lawn green
-                      ),
-                      child: Text('Login'),
-                    ),
-                    if (store.errorMessage != null)
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          store.errorMessage!,
-                          style: TextStyle(color: Colors.red),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      TextField(
+                        onChanged: (value) => store.email = value,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
                         ),
+                        style: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
                       ),
-                  ],
+                      SizedBox(height: 10),
+                      TextField(
+                        onChanged: (value) => store.password = value,
+                        obscureText: store.isPasswordVisible,
+                        decoration: InputDecoration(
+                          labelText: 'Password',
+                          labelStyle: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              store.isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                                store.isPasswordVisible = !store.isPasswordVisible ;
+                            },
+                          ),
+                        ),
+                        style: TextStyle(color: Color(0xFF094a87)), // Polynesian blue
+                      ),
+                      SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: store.isFormValid ? store.signInWithEmailAndPassword : null,
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Color(0xFF78ed1a)), // Lawn green
+                        ),
+                        child: Text('Login'),
+                      ),
+                      if (store.errorMessage != null)
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            store.errorMessage!,
+                            style: TextStyle(color: Colors.red),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ],

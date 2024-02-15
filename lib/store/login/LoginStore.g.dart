@@ -64,6 +64,22 @@ mixin _$LoginStore on _LoginStore, Store {
     });
   }
 
+  late final _$isPasswordVisibleAtom =
+      Atom(name: '_LoginStore.isPasswordVisible', context: context);
+
+  @override
+  bool get isPasswordVisible {
+    _$isPasswordVisibleAtom.reportRead();
+    return super.isPasswordVisible;
+  }
+
+  @override
+  set isPasswordVisible(bool value) {
+    _$isPasswordVisibleAtom.reportWrite(value, super.isPasswordVisible, () {
+      super.isPasswordVisible = value;
+    });
+  }
+
   late final _$errorMessageAtom =
       Atom(name: '_LoginStore.errorMessage', context: context);
 
@@ -95,6 +111,7 @@ mixin _$LoginStore on _LoginStore, Store {
 email: ${email},
 password: ${password},
 isLoading: ${isLoading},
+isPasswordVisible: ${isPasswordVisible},
 errorMessage: ${errorMessage},
 isFormValid: ${isFormValid}
     ''';

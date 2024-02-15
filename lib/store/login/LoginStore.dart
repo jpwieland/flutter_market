@@ -21,6 +21,9 @@ abstract class _LoginStore with Store {
   bool isLoading = false;
 
   @observable
+  bool isPasswordVisible = false;
+
+  @observable
   String? errorMessage;
 
   @computed
