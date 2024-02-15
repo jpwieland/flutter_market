@@ -38,12 +38,13 @@ dependencies:
   pdf:
   path_provider:
   flutter_full_pdf_viewer_null_safe:
-  equatable:
   flutter_localization:
   cupertino_icons:
   mobx:
   flutter_mobx:
   shared_preferences:
+  collection:
+  open_file:
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +75,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/view/assets/logo.png
+    - lib/view/assets/products
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
