@@ -31,6 +31,8 @@ abstract class _CartStore with Store {
 
     if (existingCartItem != null) {
       existingCartItem.amount++;
+      cartItems = ObservableList<CartItem>.of(cartItems);
+
     } else {
       cartItems.add(CartItem(product: product, amount: 1));
     }
@@ -43,8 +45,15 @@ abstract class _CartStore with Store {
 
     if (existingCartItem != null) {
       existingCartItem.amount--;
+      if (existingCartItem.amount < 1) {
+        cartItems.removeWhere((item) => item.product == product);
+      }
+      else {
+        cartItems = ObservableList<CartItem>.of(cartItems);
+      }
     }
   }
+
 
 
   @action

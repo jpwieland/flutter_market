@@ -28,7 +28,7 @@ class CustomDrawer extends StatelessWidget {
               itemBuilder: (context, index) {
                 final cartItem = cartStore.cartItems[index];
                 return ListTile(
-                  leading: Image.network(cartItem.product.imageUrl, width: 50, height: 50),
+                  leading: Image.asset(cartItem.product.imageUrl, width: 50, height: 50),
                   title: Text(cartItem.product.name['en'] ?? 'No name'),
                   subtitle: Text('\$${(cartItem.product.price * cartItem.amount).toStringAsFixed(2)}'),
                   trailing: Row(
